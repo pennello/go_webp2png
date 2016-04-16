@@ -50,8 +50,7 @@ func main() {
 	if *outname == "-" {
 		outfile = os.Stdout
 	} else {
-		flag := os.O_WRONLY | os.O_TRUNC
-		file, err := os.OpenFile(*outname, flag, 0666)
+		file, err := os.Create(*outname)
 		if err != nil {
 			log.Fatal(err)
 		}
